@@ -36,7 +36,7 @@ snap install origin-routing-machine
 
 The [README](https://github.com/SVT/orm/blob/1.2.0/README.md) suggest to look at [deployment example](https://github.com/SVT/orm/tree/1.2.0/example). From this I see that is uses the Docker image [haproxy:alpine](https://hub.docker.com/_/haproxy) (latest version) and [custom Docker image](https://github.com/SVT/orm/blob/1.2.0/example/varnish/Dockerfile) using Varnish 6 + the module vmod_var 1.3. [Running](https://github.com/SVT/orm/blob/1.2.0/docs/running.md) also suggests to look at the [lxd folder](https://github.com/SVT/orm/tree/1.2.0/lxd). If Ansible & LXD is not your thing it can be a little hard to understand, but LXD is used to test ORM so I assume these versions are more tested. If you [look here](https://github.com/SVT/orm/blob/1.2.0/lxd/ansible/group_vars/all.yml) you see that in LXD HAProxy 1.8, Varnish 5.2.1 and vmod_var 1.2 is used.
 
-From this, I assume HAproxy 1.8+, Varnish 5.2.1+ and any compatible vmod_var works with ORM. I will ask upstream to clarify this. There is also an [sample varnish.service](https://github.com/SVT/orm/blob/1.2.0/lxd/ansible/templates/varnish.service.j2) provided in the lxd directory.
+From this, I assume HAproxy 1.8+, Varnish 5.2.1+ and any compatible vmod_var works with ORM. I [have asked](https://github.com/SVT/orm/issues/44) upstream to clarify this. There is also an [sample varnish.service](https://github.com/SVT/orm/blob/1.2.0/lxd/ansible/templates/varnish.service.j2) provided in the lxd directory.
 
 ## Use ORM
 

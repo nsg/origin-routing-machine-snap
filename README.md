@@ -1,4 +1,5 @@
 # Origin Routing Machine (ORM)
+[![Snap Status](https://build.snapcraft.io/badge/nsg/origin-routing-machine-snap.svg)](https://build.snapcraft.io/user/nsg/origin-routing-machine-snap)
 
 ORM is a reverse proxy configuration generator. It generates configuration for HAProxy and Varnish to perform HTTP routing and rewriting, backed by a user friendly YAML config format called ORM rules with built-in collision detection.
 

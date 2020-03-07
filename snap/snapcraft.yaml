@@ -40,4 +40,5 @@ parts:
         - gcc-multilib
         - g++-multilib
     stage-packages:
-      - lib32stdc++6
+      - on amd64: [lib32stdc++6]
+      - on i386: [libstdc++6]

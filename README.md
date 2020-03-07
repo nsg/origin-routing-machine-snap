@@ -60,3 +60,5 @@ origin-routing-machine --globals-path globals.yml --orm-rules-path 'sample-rules
 ```
 
 If everything worked you should have a `haproxy.cfg` and a `varnish.vcl` ready for deployment.
+
+For more information see [README](https://github.com/SVT/orm/blob/1.2.0/README.md) and [the cookbook](https://github.com/SVT/orm/blob/1.2.0/docs/rules-cookbook.md).

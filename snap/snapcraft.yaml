@@ -1,0 +1,43 @@
+name: origin-routing-machine
+base: core18
+version: '1.2.0'
+summary: ORM is a reverse proxy configuration generator.
+description: |
+  ORM is a reverse proxy configuration generator. It generates configuration for
+  HAProxy and Varnish to perform HTTP routing and rewriting, backed by a user
+  friendly YAML config format called ORM rules with built-in collision detection.
+  
+grade: stable
+confinement: strict
+
+apps:
+  origin-routing-machine:
+    command: bin/snapcraft-preload $SNAP/bin/orm
+  generate-samples:
+    command: bin/generate-samples.sh
+
+parts:
+  orm:
+    plugin: python
+    source: https://github.com/SVT/orm.git
+    source-branch: $SNAPCRAFT_PROJECT_VERSION
+
+  samples:
+    plugin: dump
+    source: samples
+
+  snapcraft-preload:
+    # ORM uses python multiprocessing and semaphores in /dev/shm
+    # Apparmor will block these we need to redirect the calls with
+    # a patched version of sergiusens snapcraft-preload:
+    # https://github.com/sergiusens/snapcraft-preload/pull/29
+    source: https://github.com/diddledan/snapcraft-preload.git
+    source-branch: semaphore-support
+
+    plugin: cmake
+    build-packages:
+      - on amd64:
+        - gcc-multilib
+        - g++-multilib
+    stage-packages:
+      - lib32stdc++6
